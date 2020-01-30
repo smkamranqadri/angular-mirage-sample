@@ -1,0 +1,18 @@
+<div
+  background="#1abc9c"
+  color="#ecf0f1"
+  padding="10px 20px"
+  lineHeight="1.5em"
+>
+  <div display="flex" jcsb>
+    <div backgroundColor="#ecf0f1" borderRadius="25%" padding="5px" cursor="pointer">
+      <small>🗑</small>
+    </div>
+    <div backgroundColor="#ecf0f1" borderRadius="25%" padding="5px" cursor="pointer">
+      <small cursor="pointer" *ngIf="!post.favourite">🖤</small>
+      <small cursor="pointer" *ngIf="post.favourite">❤️</small>
+    </div>
+  </div>
+  <h2 color="white">{{ post.title }}</h2>
+  <p>{{ post.description }}</p>
+</div>
