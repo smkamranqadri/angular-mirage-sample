@@ -5,12 +5,24 @@
   lineHeight="1.5em"
 >
   <div display="flex" jcsb>
-    <div backgroundColor="#ecf0f1" borderRadius="25%" padding="5px" cursor="pointer">
+    <div
+      backgroundColor="#ecf0f1"
+      borderRadius="25%"
+      padding="5px"
+      cursor="pointer"
+      (click)="delete()"
+    >
       <small>🗑</small>
     </div>
-    <div backgroundColor="#ecf0f1" borderRadius="25%" padding="5px" cursor="pointer">
-      <small cursor="pointer" *ngIf="!post.favourite">🖤</small>
-      <small cursor="pointer" *ngIf="post.favourite">❤️</small>
+    <div
+      backgroundColor="#ecf0f1"
+      borderRadius="25%"
+      padding="5px"
+      cursor="pointer"
+      (click)="toggleLike()"
+    >
+      <small cursor="pointer" *ngIf="!post.like">🖤</small>
+      <small cursor="pointer" *ngIf="post.like">❤️</small>
     </div>
   </div>
   <h2 color="white">{{ post.title }}</h2>

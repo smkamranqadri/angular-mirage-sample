@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import IPost from '../../types/post.type';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -6,17 +9,25 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
   @Input()
-  post: {
-      title: string;
-      description: string;
-      favourite: boolean;
-  };
+  post: IPost;
 
-  constructor() { }
+  @Output()
+  notifyDelete = new EventEmitter<string>();
 
-  ngOnInit() {
+  constructor(private postsService: PostsService) {}
+
+  ngOnInit() {}
+
+  toggleLike() {
+    this.postsService.toggleLike(this.post.id).subscribe(() => {
+      this.post.like = !this.post.like;
+    });
   }
 
+  delete() {
+    this.postsService.delete(this.post.id).subscribe(() => {
+      this.notifyDelete.emit(this.post.id);
+    });
+  }
 }

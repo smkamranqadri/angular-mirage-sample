@@ -15,9 +15,9 @@
     </p>
   </div>
   <div marginBottom="30px" *ngFor="let post of posts">
-    <app-post [post]="post"></app-post>
+    <app-post [post]="post" (notifyDelete)="notifyDelete($event)"></app-post>
   </div>
-  <div position="fixed" bottom="20px" right="20px">
+  <div position="fixed" bottom="20px" right="20px" (click)="addPost()">
     <div
       display="flex"
       jcc
@@ -28,6 +28,7 @@
       width="50px"
       height="50px"
       cursor="pointer"
+      style="box-shadow:0 0 10px grey"
     >
       <span fontSize="2em">+</span>
     </div>
