@@ -2,7 +2,7 @@
 
 A posts application to create demo of miragejs - api mocking lib.
 
-visit demo here: [](https://smkamranqadri.github.io/angular-mirage-sample/)
+visit demo here: [https://smkamranqadri.github.io/angular-mirage-sample/](https://smkamranqadri.github.io/angular-mirage-sample/)
 
 Steps to run
 
